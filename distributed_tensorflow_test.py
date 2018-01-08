@@ -171,9 +171,9 @@ elif FLAGS.job_name == "worker":
 
         #cross entropy
         with tf.name_scope('loss'):
-            cross_entropy = tf.losses.sparse_softmax_cross_entropy(logits = Y, labels = y)
+            cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits = Y, labels = y)
             optimizer = tf.train.AdamOptimizer(learning_rate).minimize(cross_entropy)
-        tf.summary.scalar('loss',cost)
+        tf.summary.scalar('loss',cross_entropy)
 
         with tf.name_scope('accuracy'):
             correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(Y,1))
