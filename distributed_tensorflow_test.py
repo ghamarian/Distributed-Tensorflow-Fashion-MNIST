@@ -53,7 +53,7 @@ filter_size3 = 32
 sigma = 1e-3
 learning_rate = 0.01
 
-LOG_DIR = 'projector'
+LOG_DIR = 'train'
 print('parametres setting finished!')
 def variable_summaries(var):
     '''attach a lot of summaries to a tensorboard'''
@@ -185,7 +185,10 @@ elif FLAGS.job_name == "worker":
         init_op = tf.global_variables_initializer()
 
 
-    sv = tf.train.Supervisor(is_chief=(FLAGS.task_index == 0),global_step = global_step,init_op = init_op)
+    sv = tf.train.Supervisor(is_chief=(FLAGS.task_index == 0),
+                             logdir = LOG_DIR,
+                             global_step = global_step,
+                             init_op = init_op)
 
 
     begin_time = time.time()
