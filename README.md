@@ -16,7 +16,7 @@
  > Remember to edit flag ps_hosts/worker_hosts inside the python sript before running th program  
  > Inside the script, flag num_workers/num_parameter_servers should be consistent with length of flag ps_hosts/worker_hosts
 
-Training starts after 4 commands are executed. Fashion MNIST dataset is downloaded to `/data/fashion` directory and trained model is saved in  `/tmp/train_logs` directory. These directories can be changed with the `--data_dir` option and `--log_dir` option respectively.
+Training starts after 4 commands are executed. Fashion MNIST dataset is downloaded to `/data/fashion` directory and trained model is saved in  `/train/train_logs` directory. These directories can be changed with the `--data_dir` option and `--log_dir` option respectively.
 
 ### When trying on multiple machines
 
